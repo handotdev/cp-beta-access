@@ -35,17 +35,13 @@ function sendEmails(list) {
     const mailOptions = {
       from: "cornell.course.plan@gmail.com",
       to: user.email,
-      subject: "Sending Email using Node.js",
-      // text: "Hello " + user.name,
+      subject: "Access to the CoursePlan Beta 📝",
       html:
         "<p>Hello Ein,</p><p>Thank you for signing up for the waitlist for CoursePlan Beta! Your email (<a href=mailto:" +
         user.email +
         ">" +
         user.email +
         "</a>) has been given access to the platform at <a href='http://courseplan.io'>courseplan.io</a>.✅</p><p>If you would like to refer your friends to the platform and fast track their wait time for access, add their emails to <a href='https://forms.gle/9ocRS2LR8Ezr3eCG7'>this form</a>.</p><p>Lastly, we would like to ask your for a favor. Please give us as much feedback as possible by clicking on the feedback button on the right-most side of the window of the platform. Your thoughts will help us build CoursePlan the way you want it! ✏️ </p><p>Thank you and happy course planning!</p><p>Cheers,</p><p style='line-height:1.2;'>Han Wang</p><p style='line-height:1.2;'>Product Manager of CoursePlan</p>"
-
-      // 'Click <a href="http://courseplan.io' +
-      // '"> here </a> to access CoursePlan Beta!! </p>
     };
     transporter.sendMail(mailOptions, function(error, info) {
       if (error) {
@@ -58,9 +54,9 @@ function sendEmails(list) {
 }
 
 var emails = [
-  { email: "ayeshagrocks@gmail.com", name: "Ayesha" },
-  { email: "ein.chang@gmail.com", name: "Ein" },
-  { email: "hannywang08@gmail.com", name: "Han" }
+  // { email: "ayeshagrocks@gmail.com", name: "Ayesha" },
+  { email: "ein.chang@gmail.com", name: "Ein" }
+  // { email: "hannywang08@gmail.com", name: "Han" }
 ];
 
 var emails = [];
