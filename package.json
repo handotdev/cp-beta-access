@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/hanywang2/cp-beta-access/issues"
   },
-  "homepage": "https://github.com/hanywang2/cp-beta-access#readme"
+  "homepage": "https://github.com/hanywang2/cp-beta-access#readme",
+  "dependencies": {
+    "nodemailer": "^6.4.3"
+  }
 }
