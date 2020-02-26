@@ -9,17 +9,30 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const mailOptions = {
-  from: "cornell.course.plan@gmail.com",
-  to: "ec629@cornell.edu",
-  subject: "Sending Email using Node.js",
-  text: "Hello Ein!"
-};
 
-transporter.sendMail(mailOptions, function(error, info) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Email sent: " + info.response);
-  }
-});
+
+//takes in a list of emails and sends them 
+function sendEmails(list){
+    list.forEach(function(user) {
+    const mailOptions = {
+        from: "cornell.course.plan@gmail.com",
+        to: user.email,
+        subject: "Sending Email using Node.js",
+        text: "Hello" + user.name
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      })
+    })
+
+}
+var emails = [{"email": "ayeshagrocks@gmail.com", "name" : "Ayesha"}]
+
+
+
+sendEmails(emails)
