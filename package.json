@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/hanywang2/cp-beta-access#readme",
   "dependencies": {
+    "firebase": "^7.9.1",
     "nodemailer": "^6.4.3"
   }
 }
