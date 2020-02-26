@@ -1,17 +1,16 @@
-
 const firebase = require("firebase/app");
 
 require("firebase/auth");
 require("firebase/firestore");
 
 let config = {
-    apiKey: 'AIzaSyAfePy1Tbrqm55bYR7BHHl50r-9NTVj0Rs',
-    authDomain: 'cornelldti-courseplan-dev.firebaseapp.com',
-    databaseURL: 'https://cornelldti-courseplan-dev.firebaseio.com',
-    projectId: 'cornelldti-courseplan-dev',
-    storageBucket: '',
-    messagingSenderId: '321304703190',
-    appId: '1:321304703190:web:2f2fefb4a0284465b99977'
+  apiKey: "AIzaSyAfePy1Tbrqm55bYR7BHHl50r-9NTVj0Rs",
+  authDomain: "cornelldti-courseplan-dev.firebaseapp.com",
+  databaseURL: "https://cornelldti-courseplan-dev.firebaseio.com",
+  projectId: "cornelldti-courseplan-dev",
+  storageBucket: "",
+  messagingSenderId: "321304703190",
+  appId: "1:321304703190:web:2f2fefb4a0284465b99977"
 };
 
 firebase.initializeApp(config);
@@ -37,7 +36,6 @@ function sendEmails(list) {
       from: "cornell.course.plan@gmail.com",
       to: user.email,
       subject: "Sending Email using Node.js",
-<<<<<<< HEAD
       // text: "Hello " + user.name,
       html:
         "<p>Hello Ein,</p><p>Thank you for signing up for the waitlist for CoursePlan Beta! Your email (<a href=mailto:" +
@@ -48,13 +46,6 @@ function sendEmails(list) {
 
       // 'Click <a href="http://courseplan.io' +
       // '"> here </a> to access CoursePlan Beta!! </p>
-=======
-      html:
-        '<p> "Hello" ' +
-        user.name +
-        'Click <a href=“http://courseplan.io' +
-        '"> here </a> to access CoursePlan Beta!! </p> <p> "Testing multiple lines" </p>'
->>>>>>> 57011cded7b3a0bfa148177b06340570ee270362
     };
     transporter.sendMail(mailOptions, function(error, info) {
       if (error) {
@@ -65,35 +56,36 @@ function sendEmails(list) {
     });
   });
 }
-/*
+
 var emails = [
-  // { email: "ayeshagrocks@gmail.com", name: "Ayesha" },
-  { email: "ein.chang@gmail.com", name: "Ein" }
-  // { email: "hannywang08@gmail.com", name: "Han" }
+  { email: "ayeshagrocks@gmail.com", name: "Ayesha" },
+  { email: "ein.chang@gmail.com", name: "Ein" },
+  { email: "hannywang08@gmail.com", name: "Han" }
 ];
-*/
 
 var emails = [];
-console.log("hello")
+console.log("hello");
 
-db.collection("landingEmails").get().then(function(querySnapshot) {
+db.collection("landingEmails")
+  .get()
+  .then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
+      // doc.data() is never undefined for query doc snapshots
 
-        var user = {
-            "email" : doc.data().email,
-            "name" : ""
-        }
-        emails.push(user);
-        console.log(doc.data().email)
+      var user = {
+        email: doc.data().email,
+        name: ""
+      };
+      emails.push(user);
+      console.log(doc.data().email);
     });
-    return emails
-}).catch(function(error) {
+    return emails;
+  })
+  .catch(function(error) {
     console.log("Error getting documents: ", error);
-}).then(function(emails) {
-    console.log("hello!!!!")
+  })
+  .then(function(emails) {
+    console.log("hello!!!!");
     sendEmails(emails);
     firebase.database().goOffline();
-
-});
-
+  });
