@@ -46,6 +46,7 @@ const transporter = nodemailer.createTransport({
 });
 
 //takes in a list of emails and sends them
+
 function sendEmails(list) {
   list.forEach(function(user) {
     const mailOptions = {
