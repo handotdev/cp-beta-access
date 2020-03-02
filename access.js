@@ -2,6 +2,7 @@ const firebase = require("firebase/app");
 
 require("firebase/auth");
 require("firebase/firestore");
+require("dotenv").config();
 
 let config = {
   apiKey: "AIzaSyDkKOpImjbjS2O0RhIQNJLQXx2SuYbxsfU",
@@ -41,7 +42,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "cornell.course.plan@gmail.com",
-    pass: "BOON!BOON!"
+    pass: process.env.PASSWORD
   }
 });
 
