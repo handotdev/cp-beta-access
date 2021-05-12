@@ -20,6 +20,6 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "firebase": "^7.9.3",
-    "nodemailer": "^6.4.3"
+    "nodemailer": "^6.4.16"
   }
 }
